@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="arjajobsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="arjajobsModelStoreContainer">
+    <EntitySet Name="Image" EntityType="arjajobsModel.Store.Image" store:Type="Tables" store:Schema="dbo" store:Name="Image">
+      <DefiningQuery>SELECT 
+      [Image].[ID_IMAGE] AS [ID_IMAGE], 
+      [Image].[USER_ID] AS [USER_ID], 
+      [Image].[TITLE] AS [TITLE], 
+      [Image].[TITLE2] AS [TITLE2], 
+      [Image].[IMAGE] AS [IMAGE], 
+      [Image].[SOURCE] AS [SOURCE], 
+      [Image].[PLUS] AS [PLUS], 
+      [Image].[MINUS] AS [MINUS], 
+      [Image].[DATE] AS [DATE]
+      FROM [dbo].[Image] AS [Image]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Profil" EntityType="arjajobsModel.Store.Profil" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'arjajobs.dbo.Image' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+      <PropertyRef Name="SOURCE" />
+    </Key>
+    <Property Name="ID_IMAGE" Type="nchar" MaxLength="10" />
+    <Property Name="USER_ID" Type="int" Nullable="false" />
+    <Property Name="TITLE" Type="nvarchar" MaxLength="150" />
+    <Property Name="TITLE2" Type="nvarchar" MaxLength="150" />
+    <Property Name="IMAGE" Type="nvarchar" MaxLength="200" />
+    <Property Name="SOURCE" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="PLUS" Type="int" />
+    <Property Name="MINUS" Type="int" />
+    <Property Name="DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="Profil">
+    <Key>
+      <PropertyRef Name="ID_USER" />
+    </Key>
+    <Property Name="ID_USER" Type="int" Nullable="false" />
+    <Property Name="LOGIN" Type="nvarchar" MaxLength="50" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
+    <Property Name="PASS" Type="nvarchar" MaxLength="50" />
+    <Property Name="RULES" Type="int" />
+  </EntityType>
+</Schema>

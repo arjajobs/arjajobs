@@ -1,0 +1,41 @@
+﻿@model PWMM.Models.UploadFile
+@{
+    ViewBag.Title = "UploadFile";
+}
+
+<h2>UploadFile</h2>
+@using (Html.BeginForm("Upload", "Profil", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+       <fieldset>
+            <legend>Account Information</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Title)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.Title)
+                @Html.ValidationMessageFor(m => m.Title)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Title2)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.Title2)
+                @Html.ValidationMessageFor(m => m.Title2)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Source)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.Source)
+                @Html.ValidationMessageFor(m => m.Source)
+            </div>
+
+        
+
+            <p> <input type="file" name="file" /> </p> 
+            <p> <input type="submit" value="OK" /> </p>
+            </fieldset>
+}

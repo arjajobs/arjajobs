@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="arjajobsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="arjajobsModelStoreContainer">
+          <EntitySet Name="Image" EntityType="arjajobsModel.Store.Image" store:Type="Tables" store:Schema="dbo" store:Name="Image">
+            <DefiningQuery>SELECT 
+      [Image].[ID_IMAGE] AS [ID_IMAGE], 
+      [Image].[USER_ID] AS [USER_ID], 
+      [Image].[TITLE] AS [TITLE], 
+      [Image].[TITLE2] AS [TITLE2], 
+      [Image].[IMAGE] AS [IMAGE], 
+      [Image].[SOURCE] AS [SOURCE], 
+      [Image].[PLUS] AS [PLUS], 
+      [Image].[MINUS] AS [MINUS], 
+      [Image].[DATE] AS [DATE]
+      FROM [dbo].[Image] AS [Image]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Profil" EntityType="arjajobsModel.Store.Profil" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'arjajobs.dbo.Image' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+            <PropertyRef Name="SOURCE" />
+          </Key>
+          <Property Name="ID_IMAGE" Type="nchar" MaxLength="10" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="TITLE" Type="nvarchar" MaxLength="150" />
+          <Property Name="TITLE2" Type="nvarchar" MaxLength="150" />
+          <Property Name="IMAGE" Type="nvarchar" MaxLength="200" />
+          <Property Name="SOURCE" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="PLUS" Type="int" />
+          <Property Name="MINUS" Type="int" />
+          <Property Name="DATE" Type="date" />
+        </EntityType>
+        <EntityType Name="Profil">
+          <Key>
+            <PropertyRef Name="ID_USER" />
+          </Key>
+          <Property Name="ID_USER" Type="int" Nullable="false" />
+          <Property Name="LOGIN" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
+          <Property Name="PASS" Type="nvarchar" MaxLength="50" />
+          <Property Name="RULES" Type="int" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="arjajobsModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="arjajobsEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Profil" EntityType="arjajobsModel.Profil" />
+          <EntitySet Name="Image" EntityType="arjajobsModel.Image" />
+        </EntityContainer>
+        <EntityType Name="Profil">
+          <Key>
+            <PropertyRef Name="ID_USER" />
+          </Key>
+          <Property Name="ID_USER" Type="Int32" Nullable="false" />
+          <Property Name="LOGIN" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PASS" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Type="Int32" Name="RULES" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+            <PropertyRef Name="SOURCE" />
+          </Key>
+          <Property Type="String" Name="ID_IMAGE" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="USER_ID" Nullable="false" />
+          <Property Type="String" Name="TITLE" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TITLE2" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IMAGE1" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SOURCE" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PLUS" />
+          <Property Type="Int32" Name="MINUS" />
+          <Property Type="DateTime" Name="DATE" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="arjajobsModelStoreContainer" CdmEntityContainer="arjajobsEntities1">
+          <EntitySetMapping Name="Profil"><EntityTypeMapping TypeName="arjajobsModel.Profil"><MappingFragment StoreEntitySet="Profil">
+            <ScalarProperty Name="RULES" ColumnName="RULES" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+            <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
+            <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+            <ScalarProperty Name="PASS" ColumnName="PASS" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Image">
+            <EntityTypeMapping TypeName="arjajobsModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="MINUS" ColumnName="MINUS" />
+                <ScalarProperty Name="PLUS" ColumnName="PLUS" />
+                <ScalarProperty Name="SOURCE" ColumnName="SOURCE" />
+                <ScalarProperty Name="IMAGE1" ColumnName="IMAGE" />
+                <ScalarProperty Name="TITLE2" ColumnName="TITLE2" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="ID_IMAGE" ColumnName="ID_IMAGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Users">
+        <EntityTypeShape EntityType="arjajobsModel.Profil" Width="1.5" PointX="1.25" PointY="0.75" Height="1.787985026041667" IsExpanded="true" />
+        <EntityTypeShape EntityType="arjajobsModel.Image" Width="1.5" PointX="3.875" PointY="1.25" Height="2.7494921874999996" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

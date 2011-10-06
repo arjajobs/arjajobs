@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@if (Request.IsAuthenticated)
+{
+    @Html.ActionLink("Upload new Vixa", "UploadFile", "Profil");
+}
+else
+{
+    //@:[ @Html.ActionLink("Log On", "LogOn", "Account") ]
+    <p> NIe masz autoryzacji by to kurwa widziex</p>
+}

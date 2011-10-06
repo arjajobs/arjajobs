@@ -1,0 +1,7 @@
+X:\arjajobs\PWMM\PWMM\obj\Debug\ResolveAssemblyReference.cache
+X:\arjajobs\PWMM\PWMM\bin\PWMM.dll
+X:\arjajobs\PWMM\PWMM\bin\PWMM.pdb
+X:\arjajobs\PWMM\PWMM\bin\EntityFramework.dll
+X:\arjajobs\PWMM\PWMM\bin\EntityFramework.xml
+X:\arjajobs\PWMM\PWMM\obj\Debug\PWMM.dll
+X:\arjajobs\PWMM\PWMM\obj\Debug\PWMM.pdb

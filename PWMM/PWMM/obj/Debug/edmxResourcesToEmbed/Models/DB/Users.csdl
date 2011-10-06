@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="arjajobsModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="arjajobsEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Profil" EntityType="arjajobsModel.Profil" />
+    <EntitySet Name="Image" EntityType="arjajobsModel.Image" />
+  </EntityContainer>
+  <EntityType Name="Profil">
+    <Key>
+      <PropertyRef Name="ID_USER" />
+    </Key>
+    <Property Name="ID_USER" Type="Int32" Nullable="false" />
+    <Property Name="LOGIN" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PASS" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Type="Int32" Name="RULES" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+      <PropertyRef Name="SOURCE" />
+    </Key>
+    <Property Type="String" Name="ID_IMAGE" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="Int32" Name="USER_ID" Nullable="false" />
+    <Property Type="String" Name="TITLE" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TITLE2" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="IMAGE1" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SOURCE" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="PLUS" />
+    <Property Type="Int32" Name="MINUS" />
+    <Property Type="DateTime" Name="DATE" />
+  </EntityType>
+</Schema>
