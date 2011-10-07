@@ -5,3 +5,10 @@ X:\arjajobs\PWMM\PWMM\bin\EntityFramework.dll
 X:\arjajobs\PWMM\PWMM\bin\EntityFramework.xml
 X:\arjajobs\PWMM\PWMM\obj\Debug\PWMM.dll
 X:\arjajobs\PWMM\PWMM\obj\Debug\PWMM.pdb
+X:\GIT\arjajobs\PWMM\PWMM\obj\Debug\ResolveAssemblyReference.cache
+X:\GIT\arjajobs\PWMM\PWMM\obj\Debug\PWMM.dll
+X:\GIT\arjajobs\PWMM\PWMM\bin\PWMM.dll
+X:\GIT\arjajobs\PWMM\PWMM\bin\PWMM.pdb
+X:\GIT\arjajobs\PWMM\PWMM\bin\EntityFramework.dll
+X:\GIT\arjajobs\PWMM\PWMM\bin\EntityFramework.xml
+X:\GIT\arjajobs\PWMM\PWMM\obj\Debug\PWMM.pdb

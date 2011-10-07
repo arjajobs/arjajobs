@@ -7,6 +7,7 @@ using System.IO;
 using PWMM.Models;
 using PWMM.Models.ObjectMenager;
 using System.Web.Security;
+using System.Diagnostics;
 
 namespace PWMM.Controllers
 {
@@ -22,26 +23,28 @@ namespace PWMM.Controllers
 
         //
         // GET: /UploadFile/
-        public ActionResult UploadFile()
+        public ActionResult Upload()
         {
             return View();
         }
 
         // POST /Upload/
         [HttpPost]
-        public ActionResult Upload(UploadFile FileUpload, HttpPostedFileBase file)
+        public ActionResult Upload(UploadFileModel fileUploadModel, HttpPostedFileBase file)
         {
+            ProfilMenager profilMenager = new ProfilMenager();
             if (file != null && file.ContentLength > 0) 
             {
                 var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(Server.MapPath("~/App_Data"), fileName);
-                FileUpload.Image = path.ToString();
-                file.SaveAs(path);
+                var path = Path.Combine(Server.MapPath("~/App_Data"), User.Identity.Name.ToString(), fileName);
+                //var path = "";
 
-                ImageMenager image = new ImageMenager();
-                image.Add(FileUpload, FormsAuthentication.GetAuthCookie("UserName", false));
+                file.SaveAs(path);
+                // Dorobić zmneijszanie zdjecia
+                // Przekazanie wszystkich danych dotyczacych pliku juz po zapisaniu go na dysk ! 
+                profilMenager.Add(fileUploadModel, User.Identity.Name.ToString(), path);
             }
-        return RedirectToAction("Index");      
+            return View(fileUploadModel);  
         }
     }
 }

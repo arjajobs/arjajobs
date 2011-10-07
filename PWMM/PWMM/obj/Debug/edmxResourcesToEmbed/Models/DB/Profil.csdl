@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="arjajobsModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="arjajobsEntities4" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Image" EntityType="arjajobsModel.Image" />
+    <EntitySet Name="Users" EntityType="arjajobsModel.Users" />
+    <AssociationSet Name="FK_IMAGE_ID_USER" Association="arjajobsModel.FK_IMAGE_ID_USER">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Image" EntitySet="Image" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ID_IMAGE" />
+    </Key>
+    <Property Name="ID_IMAGE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_USER" Type="Int32" Nullable="false" />
+    <Property Name="TITLE" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="TITLE2" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="IMAGE1" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="SOURCE" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="PLUS" Type="Int32" />
+    <Property Name="MINUS" Type="Int32" />
+    <Property Name="DATE" Type="DateTime" />
+    <NavigationProperty Name="Users" Relationship="arjajobsModel.FK_IMAGE_ID_USER" FromRole="Image" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID_USER" />
+    </Key>
+    <Property Name="ID_USER" Type="Int32" Nullable="false" />
+    <Property Name="LOGIN" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PASS" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="RULES" Type="Int32" />
+    <NavigationProperty Name="Image" Relationship="arjajobsModel.FK_IMAGE_ID_USER" FromRole="Users" ToRole="Image" />
+  </EntityType>
+  <Association Name="FK_IMAGE_ID_USER">
+    <End Role="Users" Type="arjajobsModel.Users" Multiplicity="1" />
+    <End Role="Image" Type="arjajobsModel.Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID_USER" />
+      </Principal>
+      <Dependent Role="Image">
+        <PropertyRef Name="ID_USER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

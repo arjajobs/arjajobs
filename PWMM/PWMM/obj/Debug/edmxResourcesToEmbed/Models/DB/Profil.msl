@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="arjajobsModelStoreContainer" CdmEntityContainer="arjajobsEntities4">
+    <EntitySetMapping Name="Image">
+      <EntityTypeMapping TypeName="arjajobsModel.Image">
+        <MappingFragment StoreEntitySet="Image">
+          <ScalarProperty Name="ID_IMAGE" ColumnName="ID_IMAGE" />
+          <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="TITLE2" ColumnName="TITLE2" />
+          <ScalarProperty Name="IMAGE1" ColumnName="IMAGE" />
+          <ScalarProperty Name="SOURCE" ColumnName="SOURCE" />
+          <ScalarProperty Name="PLUS" ColumnName="PLUS" />
+          <ScalarProperty Name="MINUS" ColumnName="MINUS" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="arjajobsModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+          <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="PASS" ColumnName="PASS" />
+          <ScalarProperty Name="RULES" ColumnName="RULES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

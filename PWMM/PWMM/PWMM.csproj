@@ -66,19 +66,19 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ProfilController.cs" />
-    <Compile Include="Models\DB\Users.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Users.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\ObjectMenager\ImageMenager.cs" />
+    <Compile Include="Models\DB\Profil.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Profil.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ObjectMenager\ProfilMenager.cs" />
     <Compile Include="Models\ObjectMenager\UserMenager.cs" />
-    <Compile Include="Models\ProfilModel.cs" />
+    <Compile Include="Models\ProfilModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -163,16 +163,16 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Models\DB\Users.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Users.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Profil\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Profil\UploadFile.cshtml" />
+    <Content Include="Views\Profil\Upload.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\DB\Profil.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Profil.Designer.cs</LastGenOutput>
+    </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
